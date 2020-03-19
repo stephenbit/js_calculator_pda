@@ -46,6 +46,36 @@ it('can chain multiple operations and return the correct result of 9', function(
     expect(running_total.getAttribute('value')).to.eventually.equal('-2')
   })
 
+  it('it should display a decimal number (2.5)', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number5')).click()
+    element(by.css('#operator_divide')).click()
+    element(by.css('#number2')).click();
+    element(by.css('#operator_equals')).click()
+    expect(running_total.getAttribute('value')).to.eventually.equal('2.5')
+  })
+
+  it('it should display large numbers (99999980000001) ', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number9')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#operator_multiply')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#number9')).click()
+    element(by.css('#operator_equals')).click()
+    expect(running_total.getAttribute('value')).to.eventually.equal('99999980000001')
+  })
+
   it('should display Infinity if dividing by 0', function(){
     running_total = element(by.css('#running_total'))
     element(by.css('#number4')).click();
