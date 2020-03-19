@@ -76,14 +76,14 @@ it('can chain multiple operations and return the correct result of 9', function(
     expect(running_total.getAttribute('value')).to.eventually.equal('99999980000001')
   })
 
-  it('should display Infinity if dividing by 0', function(){
+  it('should display err if dividing by 0', function(){
     running_total = element(by.css('#running_total'))
     element(by.css('#number4')).click();
     element(by.css('#number7')).click()
     element(by.css('#operator_divide')).click()
     element(by.css('#number0')).click();
     element(by.css('#operator_equals')).click()
-    expect(running_total.getAttribute('value')).to.eventually.equal('Infinity')
+    expect(running_total.getAttribute('value')).to.eventually.equal('err')
   })
 
 });
